@@ -1,0 +1,16 @@
+data = {}
+for i in range(int(input())):
+    act = input()
+    user = act.split()[0]
+    if act.split()[1] == 'опубликовал':
+        data[user] = [int(act.split()[-1]),'original']
+    else:
+        views = int(act.split()[-1])
+        owner = act.split()[4][:-1]
+        data[user] = [views,owner]
+        
+        if owner!='original':
+            data[owner][0]  += views
+
+            
+print('\n'.join(map(lambda x:str(x) , [data[i][0] for i in data])))         
