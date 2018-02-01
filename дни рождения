@@ -1,0 +1,18 @@
+dates = {}
+for i in range(int(input())):
+    data = input().split()
+    if data[2] not in dates:
+        dates[data[2]] = [data[0]]
+    else:
+        dates[data[2]].append(data[0])
+
+for mes in dates:
+    dates[mes].sort()
+
+
+for j in range(int(input())):
+    month = input()
+    if month in dates:
+        print(' '.join(dates[month]))
+    else:
+        print('')
